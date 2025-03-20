@@ -6,7 +6,7 @@ on:
       - oct_bmle_mlops_rakuten_bastien
   pull_request:
     branches:
-      - oct_bmle_mlops_rakuten_bastien
+      - master
 
 jobs:
   build:
