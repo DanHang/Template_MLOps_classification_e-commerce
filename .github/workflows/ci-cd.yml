@@ -23,8 +23,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # Supprimer pywin32 si l'OS n'est pas Windows
+          # Supprimer pywin32 et remplacer tensorflow-intel par tensorflow sous Linux
           sed -i '/pywin32/d' requirements.txt || true
+          sed -i 's/tensorflow-intel/tensorflow/' requirements.txt || true
           pip install -r requirements.txt
 
       - name: Run linting
@@ -43,6 +44,10 @@ jobs:
 
       - name: Train model
         run: python src/main.py
+
+      - name: Run predictions
+        run: python src/predict.py
+
 
       - name: Run predictions
         run: python src/predict.py
