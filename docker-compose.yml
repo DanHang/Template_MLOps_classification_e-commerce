@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  model:
+    build: .
+    container_name: model_container
+    volumes:
+      - ./data/preprocessed:/app/data/preprocessed
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: ["python", "src/predict.py"]
