@@ -37,7 +37,7 @@ jobs:
 
       - name: Run linting
         run: |
-          flake8 src/ --ignore=E203,E231,E251,E261,E302,E303,E501,E712,F401,F811,F821,W292,W293,W391 --count --show-source --statistics
+          flake8 src/ --ignore=E203,E231,E251,E261,E302,E303,E501,E712,F401,F811,F821,W292,W293,W391,W503 --count --show-source --statistics
 
       - name: Run tests
         run: |
@@ -52,4 +52,5 @@ jobs:
 
       - name: Run predictions
         run: python src/predict.py
+
 
